@@ -6,13 +6,11 @@ namespace AnimalShelter.Models
   {
     public int AnimalId { get; set; }
 
-    public string Gender { get; set; }
-
     public string Name { get; set; }
-
+    public AType AnimalType { get; set; }
     public string Breed { get; set; }
 
-    public AType AnimalType { get; set; }
+    public string Sex { get; set; }
 
     public DateTime DateAdmitted { get; set; }
 

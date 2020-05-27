@@ -11,12 +11,11 @@
     @Html.DropDownListFor(model => model.AnimalType, new SelectList(Enum.GetValues(typeof(AType))), "Select Animal Type", new { @class = "form-control" , required="required"})
         @Html.LabelFor(model => model.Breed)
     @Html.TextBoxFor(model => model.Breed)
-        @Html.LabelFor(model => model.Gender)
-    @Html.TextBoxFor(model => model.Gender)
+        @Html.LabelFor(model => model.Sex)
+    @Html.TextBoxFor(model => model.Sex)
 
     @Html.TextBoxFor(model => model.DateAdmitted, "{0:yyyy-MM-dd}", new { type="date" })
 
       <input type="submit" value="Add animal"/>
-
 
   }

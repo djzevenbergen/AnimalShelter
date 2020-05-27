@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using AnimalShelter.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace AnimalShelter.Controllers
 {
@@ -13,7 +14,7 @@ namespace AnimalShelter.Controllers
     {
       _db = db;
     }
-
+    [HttpGet("/index")]
     public ActionResult Index()
     {
       List<Animal> model = _db.Animals.ToList();
@@ -31,6 +32,7 @@ namespace AnimalShelter.Controllers
     {
       _db.Animals.Add(animal);
       _db.SaveChanges();
+      Console.WriteLine("hi");
       return RedirectToAction("Index");
 
     }
