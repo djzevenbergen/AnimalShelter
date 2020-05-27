@@ -62,17 +62,14 @@ namespace AnimalShelter.Controllers
 
     public ActionResult Search(string search)
     {
-      List<Animal> model = _db.Animals.ToList();
-      List<Animal> matches = new List<Animal> { };
-      foreach (Animal a in model)
+      var model = from m in _db.Animals select m;
+
+      if (!string.IsNullOrEmpty(search))
       {
-        if (a.AnimalType == search)
-        {
-          matches.Add(a);
-        }
+        model = model.Where(m => m.Name.Contains(search));
       }
+      List<Animal> matches = model.ToList();
       return View(matches);
     }
-
   }
 }
