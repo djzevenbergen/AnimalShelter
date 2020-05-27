@@ -34,7 +34,6 @@ namespace AnimalShelter.Controllers
       _db.SaveChanges();
       Console.WriteLine("hi");
       return RedirectToAction("Index");
-
     }
 
     public ActionResult Details(int id)
@@ -59,6 +58,21 @@ namespace AnimalShelter.Controllers
       return View(sortedModel);
     }
 
-    // List<Order> SortedList = objListOrder.OrderBy(o=>o.OrderDate).ToList();
+    [HttpGet("/search")]
+
+    public ActionResult Search(string search)
+    {
+      List<Animal> model = _db.Animals.ToList();
+      List<Animal> matches = new List<Animal> { };
+      foreach (Animal a in model)
+      {
+        if (a.AnimalType == search)
+        {
+          matches.Add(a);
+        }
+      }
+      return View(matches);
+    }
+
   }
 }

@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@using AnimalShelter.Models;
+@model List<AnimalShelter.Models.Animal>;
+
+<h2>Search Results:</h2>
+
+@foreach(Animal animal in Model)
+{
+   <li>@Html.ActionLink($"{animal.Name}: {animal.AnimalType}" , "Details", new {id = animal.AnimalId})</li>
+}
