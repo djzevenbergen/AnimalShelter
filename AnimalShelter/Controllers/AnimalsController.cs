@@ -50,6 +50,15 @@ namespace AnimalShelter.Controllers
       return View(sortedModel);
     }
 
+    [HttpGet("/animaltype")]
+
+    public ActionResult AnimalType()
+    {
+      List<Animal> model = _db.Animals.ToList();
+      List<Animal> sortedModel = model.OrderBy(o => o.AnimalType).ToList();
+      return View(sortedModel);
+    }
+
     // List<Order> SortedList = objListOrder.OrderBy(o=>o.OrderDate).ToList();
   }
 }
