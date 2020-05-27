@@ -27,7 +27,7 @@ namespace AnimalShelter.Controllers
       return View();
     }
 
-    [HttpPost]
+    [HttpPost("/create")]
     public ActionResult Create(Animal animal)
     {
       _db.Animals.Add(animal);

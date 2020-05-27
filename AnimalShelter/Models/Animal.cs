@@ -13,13 +13,10 @@ namespace AnimalShelter.Models
 
   }
 
-  // public enum AType
-  // {
-  //   Dog,
-  //   Cat,
-  //   Fish,
-  //   Reptile,
-  //   Amphibian,
-  //   SmallMammal
-  // }
+  public enum AType
+  {
+    Dog,
+    Cat,
+    Fish
+  }
 }
