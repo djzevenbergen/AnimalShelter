@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using ToDoList.Models;
+using AnimalShelter.Models;
 
-namespace ToDoList
+namespace AnimalShelter
 {
   public class Startup
   {
@@ -26,7 +26,7 @@ namespace ToDoList
 
       //New code
       services.AddEntityFrameworkMySql()
-          .AddDbContext<ToDoListContext>(options => options
+          .AddDbContext<AnimalShelterContext>(options => options
           .UseMySql(Configuration["ConnectionStrings:DefaultConnection"]));
     }
 
