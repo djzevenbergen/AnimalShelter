@@ -1,5 +1,9 @@
 <form action="/search" method="get">
 
   <input type="text" name="search">
+  @Html.RadioButton("searchParam", "Name")
+  <label for="searchParam">Search By Name</label>
+  @Html.RadioButton("searchParam", "Type")
+  <label for="searchParam">Search by Type</label>
   <button type="submit">Search</button>
 </form>

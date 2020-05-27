@@ -60,13 +60,20 @@ namespace AnimalShelter.Controllers
 
     [HttpGet("/search")]
 
-    public ActionResult Search(string search)
+    public ActionResult Search(string search, string searchParam)
     {
       var model = from m in _db.Animals select m;
 
       if (!string.IsNullOrEmpty(search))
       {
-        model = model.Where(m => m.Name.Contains(search));
+        if (searchParam == "Name")
+        {
+          model = model.Where(m => m.Name.Contains(search));
+        }
+        else if (searchParam == "Type")
+        {
+          model = model.Where(m => m.AnimalType.Contains(search));
+        }
       }
       List<Animal> matches = model.ToList();
       return View(matches);
